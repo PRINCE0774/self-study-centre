@@ -1,0 +1,60 @@
+# NARAYANA LIBRARY - Image Setup Guide
+
+## Your Uploaded Images (Already Placed)
+
+These images from your upload are already in the correct folder:
+
+| Your Original File | Renamed To | Used In |
+|---|---|---|
+| WhatsApp Image 2026-07-23 at 2.02.07 PM.jpeg | images/logo.jpg | Navbar logo, Hero banner, Footer |
+| WhatsApp Image 2026-07-23 at 1.35.27 PM.jpeg | images/interior-1.jpg | Hero background, Gallery |
+| WhatsApp Image 2026-07-23 at 1.35.27 PM(1).jpeg | images/interior-2.jpg | Gallery |
+| file_00000000e3bc81f798062a57befd9898.png | images/entrance.png | Gallery (Entrance photo) |
+
+## Folder Structure (After Extraction)
+
+    narayana-library/
+    ├── index.html
+    ├── css/
+    │   └── style.css
+    ├── js/
+    │   └── main.js
+    └── images/
+        ├── logo.jpg          <-- Your banner/logo (REQUIRED)
+        ├── interior-1.jpg    <-- Your main hall photo (REQUIRED)
+        └── interior-2.jpg    <-- Your seating area photo (REQUIRED)
+
+## How It Works
+
+The website references images by relative paths:
+
+- Navbar Logo:    <img src="images/logo.jpg">
+- Hero Banner:    <img src="images/logo.jpg">
+- Hero BG:        background: url("../images/interior-1.jpg")  (in css/style.css)
+- Gallery Pic 1:  <img src="images/interior-1.jpg">
+- Gallery Pic 2:  <img src="images/interior-2.jpg">
+- Gallery Pic 3:  <img src="images/logo.jpg">
+- Footer Logo:    <img src="images/logo.jpg">
+
+## To Add More Images Later
+
+1. Copy your new image into the `images/` folder
+2. Add a new gallery item in `index.html` inside the `<div class="gallery-grid">`:
+
+    <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="images/your-new-image.jpg" alt="Description" loading="lazy">
+        <div class="overlay">
+            <div class="overlay-icon"><i class="fas fa-expand"></i></div>
+            <div class="overlay-text">Your Label</div>
+        </div>
+    </div>
+
+3. Save and refresh the browser
+
+## Important Notes
+
+- Images MUST stay inside the `images/` folder
+- File names are case-sensitive (logo.jpg != Logo.JPG)
+- Supported formats: .jpg, .jpeg, .png, .webp
+- Recommended size: 1920x1080 or larger for backgrounds
+- The hero background is set in css/style.css line ~130
